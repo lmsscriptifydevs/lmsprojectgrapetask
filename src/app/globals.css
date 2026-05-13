@@ -1,0 +1,74 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+:root {
+  --main-bg: #020617;
+  --card-bg: rgba(255, 255, 255, 0.02);
+  --card-bg-active: rgba(255, 255, 255, 0.04);
+  --primary-orange: #f0591f;
+  --secondary-blue-blur: rgba(59, 130, 246, 0.05);
+  --pure-white: #ffffff;
+  --pure-black: #000000;
+  --light-gray-hover: #d4d4d8;
+  --medium-gray-title: #a1a1aa;
+  --body-gray-text: #71717a;
+  --dark-gray-number: #52525b;
+  --light-border: rgba(255, 255, 255, 0.06);
+  --medium-border: rgba(255, 255, 255, 0.07);
+  --orange-border-active: rgba(240, 89, 31, 0.4);
+}
+
+* {
+  box-sizing: border-box;
+}
+
+html,
+body {
+  min-height: 100%;
+  background: var(--main-bg);
+  color: var(--pure-white);
+}
+
+body {
+  margin: 0;
+}
+
+a {
+  color: inherit;
+  text-decoration: none;
+}
+
+button,
+input,
+select,
+textarea {
+  font: inherit;
+}
+
+::selection {
+  background: var(--primary-orange);
+  color: var(--pure-white);
+}
+
+.theme-card {
+  background: var(--card-bg);
+  border: 1px solid var(--light-border);
+  transition:
+    background-color 150ms ease,
+    border-color 150ms ease;
+}
+
+.theme-card:hover {
+  background: var(--card-bg-active);
+}
+
+.theme-card-active {
+  background: var(--card-bg-active);
+  border: 1px solid var(--orange-border-active);
+}
+
+.theme-focus:focus {
+  outline: 1px solid var(--primary-orange);
+  border-color: var(--orange-border-active);
+}

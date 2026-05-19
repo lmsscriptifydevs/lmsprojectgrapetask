@@ -8,9 +8,9 @@ interface ButtonProps extends ButtonHTMLAttributes<HTMLButtonElement> {
 
 export function Button({ variant = 'primary', size = 'md', className = '', children, ...props }: ButtonProps) {
   const sizeStyles = {
-    sm: 'min-h-9 px-3 py-1.5 text-xs rounded-lg',
-    md: 'min-h-11 px-4 py-2 text-sm rounded-xl',
-    lg: 'min-h-12 px-6 py-3 text-base rounded-xl',
+    sm: 'min-h-8 sm:min-h-9 px-3 py-1.5 text-xs rounded-lg',
+    md: 'min-h-10 sm:min-h-11 px-3.5 sm:px-4 py-2 text-xs sm:text-sm rounded-lg sm:rounded-xl',
+    lg: 'min-h-10 sm:min-h-12 px-4 sm:px-6 py-2 sm:py-3 text-sm sm:text-base rounded-lg sm:rounded-xl',
   };
 
   const variantStyles =

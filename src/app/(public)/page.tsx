@@ -111,6 +111,13 @@ const AVATARS = [
   'https://images.unsplash.com/photo-1539571696357-5a69c17a67c6?w=80&h=80&auto=format&fit=crop',
 ];
 
+const HERO_STATS = [
+  { label: 'Learners', value: '50K+', icon: <Users className="w-4 h-4 sm:w-5 sm:h-5" /> },
+  { label: 'Courses', value: '1.2K+', icon: <BookOpen className="w-4 h-4 sm:w-5 sm:h-5" /> },
+  { label: 'Satisfaction', value: '98%', icon: <Star className="w-4 h-4 sm:w-5 sm:h-5" /> },
+  { label: 'Active Users', value: '4K+', icon: <Zap className="w-4 h-4 sm:w-5 sm:h-5" /> },
+];
+
 const CAREERS = [
   { name: 'Web Developer', icon: <Monitor className="w-8 h-8" /> },
   { name: 'Graphic Designer', icon: <Palette className="w-8 h-8" /> },
@@ -291,7 +298,7 @@ export default function HomePage() {
     <div className="overflow-hidden bg-[#020617] text-white">
 
       {/* ── HERO VIDEO SLIDER ── */}
-      <section className="relative min-h-[80vh] lg:min-h-screen flex items-center px-4 sm:px-6 pt-24 sm:pt-28 pb-12 sm:pb-20 overflow-hidden">
+      <section className="relative min-h-0 sm:min-h-[80vh] lg:min-h-screen flex items-start sm:items-center px-4 sm:px-6 pt-0 sm:pt-28 pb-4 sm:pb-20 overflow-hidden">
 
         {/* Absolute Video Background Container: z-0 */}
         <div className="absolute inset-0 bg-[#020617] overflow-hidden z-0">
@@ -338,67 +345,67 @@ export default function HomePage() {
         {/* Play/Pause Button */}
         <button
           onClick={togglePlayPause}
-          className="absolute bottom-10 right-8 z-40 w-12 h-12 rounded-full bg-white/10 hover:bg-white/20 border border-white/20 backdrop-blur-md flex items-center justify-center text-white transition-all duration-300 hover:scale-110 shadow-lg"
+          className="absolute bottom-4 right-3 sm:bottom-10 sm:right-8 z-40 w-8 h-8 sm:w-12 sm:h-12 rounded-full bg-white/10 hover:bg-white/20 border border-white/20 backdrop-blur-md flex items-center justify-center text-white transition-all duration-300 hover:scale-110 shadow-lg"
           aria-label={isPlaying ? "Pause video" : "Play video"}
         >
-          {isPlaying ? <Pause className="w-5 h-5" /> : <Play className="w-5 h-5 ml-1" />}
+          {isPlaying ? <Pause className="w-3.5 h-3.5 sm:w-5 sm:h-5" /> : <Play className="w-3.5 h-3.5 sm:w-5 sm:h-5 ml-0.5 sm:ml-1" />}
         </button>
 
         <div className="container mx-auto relative z-30">
-          <div className="grid grid-cols-1 lg:grid-cols-12 gap-12 lg:gap-16 items-center">
+          <div className="grid grid-cols-1 lg:grid-cols-12 gap-6 sm:gap-12 lg:gap-16 items-center">
 
             {/* LEFT — Dynamic Text & Info */}
-            <div className="lg:col-span-7 space-y-5 sm:space-y-8 text-left max-w-2xl">
+            <div className="lg:col-span-7 space-y-2.5 sm:space-y-8 text-left max-w-2xl py-4 sm:py-0">
 
               {/* Responsive Slide Badge */}
-              <div className="inline-flex flex-wrap items-center gap-2 px-4 py-2 rounded-full border border-white/10 bg-white/5 backdrop-blur-md text-xs sm:text-sm font-semibold text-white shadow-lg animate-fade-in">
-                <span className="flex items-center justify-center w-5 h-5 rounded-full bg-gradient-to-r from-[#f0591f] to-[#ff7a45] shadow-inner">
-                  <Award className="w-3 h-3 text-white" />
+              <div className="inline-flex flex-wrap items-center gap-1.5 sm:gap-2 px-2.5 py-1 sm:px-4 sm:py-2 rounded-full border border-white/10 bg-white/5 backdrop-blur-md text-xs sm:text-sm font-semibold text-white shadow-lg animate-fade-in">
+                <span className="flex items-center justify-center w-4 h-4 sm:w-5 sm:h-5 rounded-full bg-gradient-to-r from-[#f0591f] to-[#ff7a45] shadow-inner">
+                  <Award className="w-2.5 h-2.5 sm:w-3 sm:h-3 text-white" />
                 </span>
-                <span className="uppercase tracking-widest text-[10px] font-black text-primaryOrange mr-1">
+                <span className="uppercase tracking-widest text-[9px] sm:text-[10px] font-black text-primaryOrange sm:mr-1">
                   {HERO_SLIDES[activeSlide].badge}
                 </span>
                 <span className="text-[#e4e4e7] hidden sm:inline">| {HERO_SLIDES[activeSlide].highlight}</span>
               </div>
 
               {/* Main Heading - Slightly smaller as requested & 3D text styled */}
-              <h1 className="text-3xl sm:text-5xl md:text-6xl font-black leading-[1.1] tracking-tight text-white transition-all duration-700 transform translate-y-0 text-3d">
+              <h1 className="text-[1.65rem] sm:text-5xl md:text-6xl font-black leading-[1.04] sm:leading-[1.1] tracking-tight text-white transition-all duration-700 transform translate-y-0 text-3d max-w-[17rem] sm:max-w-none">
                 {HERO_SLIDES[activeSlide].title}
               </h1>
 
-              <p className="text-sm sm:text-base md:text-lg text-[#d4d4d8] leading-relaxed font-medium">
+              <p className="text-xs sm:text-base md:text-lg text-[#d4d4d8] leading-5 sm:leading-relaxed font-medium max-w-[32rem]">
                 {HERO_SLIDES[activeSlide].desc}
               </p>
 
               {/* Action Buttons - Size adjusted to normal button standard */}
-              <div className="flex flex-col sm:flex-row gap-3 sm:gap-4 pt-2">
+              <div className="flex flex-col sm:flex-row items-start gap-2 sm:gap-4 pt-0.5 sm:pt-2">
                 <Link href={HERO_SLIDES[activeSlide].ctaLink}
-                  className="group w-full sm:w-auto flex items-center justify-center gap-2 px-5 py-2.5 sm:px-6 sm:py-2.5 bg-gradient-to-r from-[#f0591f] to-[#ff7a45] text-white font-bold text-sm rounded-xl shadow-[0_6px_20px_rgba(240,89,31,0.2)] hover:shadow-[0_0_25px_rgba(240,89,31,0.4)] transition-all duration-200 hover:-translate-y-0.5 hover:scale-105 active:scale-95 text-center">
+                  className="group w-auto min-w-[180px] sm:min-w-0 sm:w-auto flex items-center justify-center gap-1.5 sm:gap-2 px-4 py-1.5 sm:px-6 sm:py-2.5 bg-gradient-to-r from-[#f0591f] to-[#ff7a45] text-white font-bold text-[11px] sm:text-sm rounded-lg sm:rounded-xl shadow-[0_6px_20px_rgba(240,89,31,0.2)] hover:shadow-[0_0_25px_rgba(240,89,31,0.4)] transition-all duration-200 hover:-translate-y-0.5 hover:scale-105 active:scale-95 text-center">
                   <span>{HERO_SLIDES[activeSlide].ctaText}</span>
-                  <ArrowRight className="w-4 h-4 group-hover:translate-x-1 transition-transform" />
+                  <ArrowRight className="w-3.5 h-3.5 sm:w-4 sm:h-4 group-hover:translate-x-1 transition-transform" />
                 </Link>
 
                 <Link href={HERO_SLIDES[activeSlide].secCtaLink}
-                  className="w-full sm:w-auto flex items-center justify-center gap-2 px-5 py-2.5 sm:px-6 sm:py-2.5 rounded-xl border border-white/20 bg-white/5 text-white font-semibold text-sm backdrop-blur-sm transition-all duration-200 hover:-translate-y-0.5 hover:scale-105 hover:bg-white/10 hover:border-white/30 active:scale-95 text-center">
+                  className="w-auto min-w-[180px] sm:min-w-0 sm:w-auto flex items-center justify-center gap-1.5 sm:gap-2 px-4 py-1.5 sm:px-6 sm:py-2.5 rounded-lg sm:rounded-xl border border-white/20 bg-white/5 text-white font-semibold text-[11px] sm:text-sm backdrop-blur-sm transition-all duration-200 hover:-translate-y-0.5 hover:scale-105 hover:bg-white/10 hover:border-white/30 active:scale-95 text-center">
                   <span>{HERO_SLIDES[activeSlide].secCtaText}</span>
                 </Link>
               </div>
 
               {/* Trust Row / Social proof */}
-              <div className="flex items-center gap-4 sm:gap-6 pt-4">
-                <div className="flex -space-x-3">
+              <div className="flex items-center gap-2.5 sm:gap-6 pt-0.5 sm:pt-4">
+                <div className="flex -space-x-2.5 sm:-space-x-3">
                   {AVATARS.map((src, i) => (
                     <img
                       key={i}
                       src={src}
                       alt="learner avatar"
-                      className="w-8 h-8 sm:w-10 sm:h-10 rounded-full border-2 border-[#020617] object-cover"
+                      className="w-7 h-7 sm:w-10 sm:h-10 rounded-full border-2 border-[#020617] object-cover"
                     />
                   ))}
                 </div>
                 <div>
-                  <div className="flex gap-0.5">{[...Array(5)].map((_, i) => <Star key={i} className="w-3.5 h-3.5 fill-[#f0591f] text-[#f0591f]" />)}</div>
-                  <p className="text-[11px] sm:text-xs text-[#a1a1aa] mt-0.5 font-semibold">50,000+ learners trust GrapeTask LMS</p>
+                  <div className="flex gap-0.5">{[...Array(5)].map((_, i) => <Star key={i} className="w-3 h-3 sm:w-3.5 sm:h-3.5 fill-[#f0591f] text-[#f0591f]" />)}</div>
+                  <p className="text-[10px] sm:text-xs text-[#a1a1aa] mt-0.5 font-semibold leading-snug">50,000+ learners trust GrapeTask LMS</p>
                 </div>
               </div>
             </div>
@@ -445,14 +452,14 @@ export default function HomePage() {
           </div>
 
           {/* Slider Pagination Controls */}
-          <div className="flex items-center justify-start gap-3 mt-8 sm:mt-16">
+          <div className="flex items-center justify-start gap-2.5 sm:gap-3 mt-2 sm:mt-16">
             {HERO_SLIDES.map((_, idx) => (
               <button
                 key={idx}
                 onClick={() => setActiveSlide(idx)} // Map tab click
-                className={`h-2.5 rounded-full transition-all duration-500 ${activeSlide === idx
-                  ? 'w-10 bg-primaryOrange shadow-md shadow-primaryOrange/30'
-                  : 'w-2.5 bg-white/20 hover:bg-white/40'
+                className={`h-2 sm:h-2.5 rounded-full transition-all duration-500 ${activeSlide === idx
+                  ? 'w-8 sm:w-10 bg-primaryOrange shadow-md shadow-primaryOrange/30'
+                  : 'w-2 sm:w-2.5 bg-white/20 hover:bg-white/40'
                   }`}
                 aria-label={`Go to slide ${idx + 1}`}
               />
@@ -460,16 +467,11 @@ export default function HomePage() {
           </div>
 
           {/* Responsive Stats Bar */}
-          <div className="mt-10 sm:mt-24 grid grid-cols-2 md:grid-cols-4 gap-4 sm:gap-6 p-5 sm:p-8 rounded-2xl sm:rounded-3xl glass-card border border-[rgba(255,255,255,0.06)] backdrop-blur-md">
-            {[
-              { label: 'Learners', value: '50K+', icon: <Users className="w-5 h-5" /> },
-              { label: 'Courses', value: '1.2K+', icon: <BookOpen className="w-5 h-5" /> },
-              { label: 'Satisfaction', value: '98%', icon: <Star className="w-5 h-5" /> },
-              { label: 'Active Users', value: '4K+', icon: <Zap className="w-5 h-5" /> },
-            ].map((stat, i) => (
+          <div className="hidden md:grid mt-24 grid-cols-4 gap-6 p-8 rounded-3xl glass-card border border-[rgba(255,255,255,0.06)] backdrop-blur-md">
+            {HERO_STATS.map((stat, i) => (
               <div key={i} className="text-center reveal" style={{ transitionDelay: `${i * 100}ms` }}>
                 <div className="flex justify-center mb-1.5 text-[#f0591f]">{stat.icon}</div>
-                <div className="text-2xl sm:text-3xl font-black text-white mb-0.5">{stat.value}</div>
+                <div className="text-3xl font-black text-white mb-0.5">{stat.value}</div>
                 <div className="text-[10px] text-[#a1a1aa] uppercase tracking-wider font-extrabold">{stat.label}</div>
               </div>
             ))}
@@ -478,6 +480,19 @@ export default function HomePage() {
       </section>
 
       {/* ── SKILL PATHS SHOWCASE SECTION ── */}
+      {/* Mobile Stats Bar - separated from hero for compact first-screen flow */}
+      <section className="block md:hidden px-4 pb-8 bg-[#020617]">
+        <div className="grid grid-cols-2 gap-2.5 p-3.5 rounded-2xl glass-card border border-[rgba(255,255,255,0.06)] backdrop-blur-md">
+          {HERO_STATS.map((stat, i) => (
+            <div key={i} className="text-center py-1.5">
+              <div className="flex justify-center mb-1 text-[#f0591f]">{stat.icon}</div>
+              <div className="text-lg font-black text-white leading-tight">{stat.value}</div>
+              <div className="text-[9px] text-[#a1a1aa] uppercase tracking-wider font-extrabold">{stat.label}</div>
+            </div>
+          ))}
+        </div>
+      </section>
+
       <section className="relative py-14 overflow-hidden bg-[#020617] border-y border-[rgba(255,255,255,0.04)] z-10">
         {/* Subtle grid background & ambient glows */}
         <div className="absolute inset-0 hero-grid opacity-[0.03] pointer-events-none" />
